@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+<!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>ISO-690 FIIT STU (numeric, Slovak)</title>
+    <id>http://www.zotero.org/styles/iso-690-fiit-stu-numeric-slovak</id>
+    <link href="http://www.zotero.org/styles/iso-690-fiit-stu-numeric-slovak" rel="self"/>
+    <link href="https://www.zotero.org/styles/iso690-numeric-sk" rel="template"/>
+    <link href="http://www.fiit.stuba.sk/sk/studium/zaverecne-projekty/bakalarsky-projekt/vzory-bibliografickych-odkazov-a-citacii.html?page_id=1863" rel="documentation"/>
+    <author>
+      <name>Petra Vrablecová</name>
+      <email>petra.vrablecova@gmail.com</email>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="generic-base"/>
+    <summary>ISO 690 style for the Slovak University of Technology in Bratislava (FIIT STU), Slovakia.(Numeric version)</summary>
+    <updated>2014-12-30T12:26:44+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <locale>
+    <terms>
+      <term name="anonymous">Anon.</term>
+      <term name="no date">[no date]</term>
+      <term name="in">in:</term>
+      <term name="online">online</term>
+      <term name="accessed">accessed</term>
+      <term name="retrieved">Available</term>
+      <term name="from">from</term>
+      <term name="et-al">et al.</term>
+      <term name="page" form="short">
+        <single>p.</single>
+        <multiple>pp.</multiple>
+      </term>
+    </terms>
+  </locale>
+  <macro name="author">
+    <names variable="author" suffix=": ">
+      <name delimiter-precedes-last="always" et-al-min="3" initialize-with="." name-as-sort-order="all">
+        <name-part name="family" text-case="title" font-variant="small-caps"/>
+        <name-part name="given" text-case="title" font-variant="small-caps"/>
+      </name>
+      <label form="short" prefix=" (" suffix=".)"/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="container_author">
+    <names variable="container-author">
+      <name sort-separator=", " initialize-with="." name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always" et-al-min="3">
+        <name-part name="family" text-case="title" font-variant="small-caps"/>
+        <name-part name="given" text-case="title" font-variant="small-caps"/>
+      </name>
+      <label form="short" text-case="capitalize-first" prefix="(" suffix=".)"/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="book thesis report" match="any">
+        <text variable="title" font-style="italic" suffix=". "/>
+      </if>
+      <else-if type="article-journal article article-magazine article-newspaper" match="any">
+        <text variable="title" suffix=". "/>
+        <text variable="container-title" font-style="italic" suffix=", "/>
+      </else-if>
+      <else-if type="paper-conference chapter" match="any">
+        <text variable="title" suffix=". "/>
+        <text term="in" text-case="title" suffix=" "/>
+        <text variable="container-title" font-style="italic" suffix=", "/>
+      </else-if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publication_source">
+    <choose>
+      <if variable="URL">
+        <text term="online" prefix="[" suffix="]"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="editor">
+    <names variable="editor">
+      <name and="text"/>
+      <label form="short" text-case="capitalize-first" suffix=". "/>
+    </names>
+  </macro>
+  <macro name="time_data">
+    <group prefix=" [cit. " suffix="]. ">
+      <date variable="accessed">
+        <date-part name="year" suffix="-"/>
+        <date-part name="month" suffix="-" form="numeric-leading-zeros"/>
+        <date-part name="day" form="numeric-leading-zeros"/>
+      </date>
+    </group>
+  </macro>
+  <macro name="availability">
+    <choose>
+      <if variable="URL">
+        <text variable="URL"/>
+      </if>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <group delimiter=": ">
+      <choose>
+        <if variable="publisher-place">
+          <text variable="publisher-place"/>
+        </if>
+        <else>
+          <text value="[s.l.]"/>
+        </else>
+      </choose>
+      <text variable="publisher"/>
+    </group>
+  </macro>
+  <macro name="year-date">
+    <date variable="issued">
+      <date-part name="year" suffix=". "/>
+    </date>
+  </macro>
+  <macro name="date">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+  <macro name="pages">
+    <choose>
+      <if type="book thesis" match="any">
+        <text variable="number-of-pages" suffix=" p."/>
+      </if>
+      <else-if type="chapter paper-conference article-newspaper" match="any">
+        <group>
+          <text term="page" form="short" plural="true" suffix=" "/>
+          <text variable="page"/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="notes">
+    <text variable="note" suffix=". "/>
+  </macro>
+  <macro name="edition">
+    <text variable="edition" suffix=". "/>
+    <text term="edition" form="short" text-case="title"/>
+  </macro>
+  <macro name="publisher_block">
+    <group delimiter=", ">
+      <text macro="publisher"/>
+      <text macro="year-date"/>
+    </group>
+  </macro>
+  <macro name="issue">
+    <group delimiter=", ">
+      <text variable="volume" prefix="vol. "/>
+      <text macro="date"/>
+      <text variable="issue" prefix="no. "/>
+      <choose>
+        <if match="any" variable="page">
+          <group>
+            <text term="page" form="short" plural="true" suffix=" "/>
+            <text variable="page"/>
+          </group>
+        </if>
+      </choose>
+    </group>
+  </macro>
+  <macro name="isbn">
+    <text prefix="ISBN " variable="ISBN"/>
+  </macro>
+  <macro name="sort-key">
+    <text macro="author"/>
+    <text variable="title"/>
+  </macro>
+  <citation>
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout delimiter=", " suffix="]" prefix="[">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography second-field-align="flush">
+    <sort>
+      <key macro="sort-key"/>
+    </sort>
+    <layout suffix=".">
+      <text variable="citation-number" prefix="[" suffix="]"/>
+      <text macro="author"/>
+      <choose>
+        <if type="book">
+          <group delimiter=" ">
+            <text macro="title" prefix=" "/>
+            <text macro="edition"/>
+            <group delimiter=", ">
+              <text macro="publisher"/>
+              <text macro="year-date"/>
+            </group>
+            <text macro="pages"/>
+            <text prefix="ISBN " variable="ISBN"/>
+          </group>
+        </if>
+        <else-if type="article-journal" match="any">
+          <text macro="title"/>
+          <text macro="issue"/>
+        </else-if>
+        <else-if type="chapter paper-conference" match="any">
+          <text macro="title"/>
+          <group delimiter=", ">
+            <text macro="date"/>
+            <text macro="pages"/>
+          </group>
+        </else-if>
+        <else-if type="patent">
+          <text macro="title"/>
+          <text variable="publisher-place" prefix=". "/>
+          <text value="Patent" prefix=". "/>
+          <text variable="number" prefix=", "/>
+          <text macro="date" prefix=", "/>
+          <text variable="URL" prefix=". "/>
+        </else-if>
+        <else-if type="post-weblog post webpage" match="any">
+          <text macro="date" suffix=". "/>
+          <text macro="title"/>
+          <text macro="time_data"/>
+          <text macro="availability"/>
+        </else-if>
+        <else-if type="report thesis" match="any">
+          <text macro="title"/>
+          <group delimiter=", ">
+            <group>
+              <text variable="publisher-place" suffix=": "/>
+              <text variable="publisher"/>
+            </group>
+            <text macro="date"/>
+            <text variable="number-of-pages" suffix=" p."/>
+          </group>
+          <text variable="URL" prefix=". "/>
+        </else-if>
+        <else-if type="article-newspaper article article-magazine" match="any">
+          <text macro="title"/>
+          <text macro="issue"/>
+          <text variable="URL" prefix=". "/>
+        </else-if>
+        <else>
+          <group suffix=".">
+            <text macro="title" prefix=" "/>
+            <text macro="editor" prefix=" "/>
+          </group>
+          <group delimiter=", ">
+            <text macro="publisher"/>
+            <text macro="year-date"/>
+          </group>
+          <text macro="time_data"/>
+          <text macro="pages"/>
+          <text macro="notes"/>
+          <text macro="availability"/>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
